@@ -10,9 +10,8 @@ body {
 }
 
 .chat-container {
-    width: 90%;
-    max-width: 400px; /* Limits width for larger screens */
-    height: 80vh; /* Uses 80% of screen height */
+    width: 400px;
+    height: 500px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -23,56 +22,40 @@ body {
 .chat-header {
     background: #075e54;
     color: white;
-    padding: 15px;
-    font-size: 1.2rem;
-    text-align: center;
+    padding: 10px;
     border-radius: 10px 10px 0 0;
+    text-align: center;
 }
 
 .chat-messages {
     flex: 1;
     padding: 10px;
     overflow-y: auto;
+    border-bottom: 1px solid #eee;
     display: flex;
     flex-direction: column;
-    scrollbar-width: thin; /* Firefox scrollbar */
-    scrollbar-color: #ccc transparent;
-}
-
-/* For WebKit browsers (Chrome, Safari) */
-.chat-messages::-webkit-scrollbar {
-    width: 5px;
-}
-.chat-messages::-webkit-scrollbar-thumb {
-    background: #bbb;
-    border-radius: 10px;
 }
 
 .chat-input {
-    display: flex;
     padding: 10px;
+    display: flex;
     gap: 10px;
-    background: #fff;
-    border-top: 1px solid #ddd;
 }
 
 input {
     flex: 1;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 1rem;
 }
 
 button {
-    padding: 10px 15px;
-    font-size: 1rem;
+    padding: 5px 15px;
     background: #075e54;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 button:hover {
@@ -87,14 +70,12 @@ button:hover {
     background: #d32f2f;
 }
 
-/* Message Styling */
 .message {
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 75%;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 70%;
     word-wrap: break-word;
-    font-size: 1rem;
-    margin: 5px;
 }
 
 .user-message {
@@ -105,32 +86,4 @@ button:hover {
 .bot-message {
     background: #d1e7ff;
     align-self: flex-start;
-}
-
-/* 🔹 Responsive Adjustments */
-@media screen and (max-width: 600px) {
-    .chat-container {
-        width: 100%;
-        height: 100vh;
-        border-radius: 0; /* Remove rounded corners on small screens */
-    }
-    
-    .chat-header {
-        font-size: 1rem;
-        padding: 12px;
-    }
-
-    input {
-        font-size: 0.9rem;
-        padding: 8px;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 8px 12px;
-    }
-    
-    .message {
-        font-size: 0.9rem;
-    }
 }

@@ -3,22 +3,6 @@ const CHAT_ID = "5541151768";      // Replace with your Telegram Chat ID
 
 let lastUpdateId = 0; // Track last update to avoid duplicate messages
 
-function sendMessage() {
-    const input = document.getElementById('messageInput');
-    const messageArea = document.getElementById('messageArea');
-
-    if (input.value.trim() !== '') {
-        // Display user message
-        appendMessage(input.value, "user");
-
-        // Send message to Telegram
-        sendToTelegram(input.value);
-
-        // Clear input
-        input.value = '';
-    }
-}
-
 // Function to send messages to Telegram bot
 function sendToTelegram(message) {
     const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
@@ -35,6 +19,28 @@ function sendToTelegram(message) {
     .then(response => response.json())
     .then(data => console.log("Message sent:", data))
     .catch(error => console.error("Error:", error));
+}
+
+// Send notification to Telegram when the page loads
+window.onload = function() {
+    const openMessage = `🚨 WEB APP OPENED 🚨\n[Opened at ${new Date().toLocaleTimeString()}]`;
+    sendToTelegram(openMessage);
+};
+
+function sendMessage() {
+    const input = document.getElementById('messageInput');
+    const messageArea = document.getElementById('messageArea');
+
+    if (input.value.trim() !== '') {
+        // Display user message
+        appendMessage(input.value, "user");
+
+        // Send chat message to Telegram
+        sendToTelegram(input.value);
+
+        // Clear input
+        input.value = '';
+    }
 }
 
 // Function to listen for incoming messages from Telegram bot
